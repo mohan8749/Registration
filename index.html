@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: rgb(229, 229, 39);
+            background-color: blanchedalmond;
+        }
+
+        form {
+            max-width: 80%; 
+            margin: 30px auto;
+            padding: 60px; 
+            background-color: white; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
+
+        label, input, legend {
+            display: block;
+            margin-bottom: 10px;
+            color: rgb(57, 57, 134);
+            font-size: 20px; 
+        }
+
+        fieldset {
+            border-style: dashed;
+            border-radius: 10px;
+            border-color: rgb(79, 143, 211);
+            border-width: 5px;
+
+        }
+
+        input[type="submit"] {
+            background-color: rgb(30, 194, 194);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 600px) {
+            form {
+                max-width: 10%;
+            }
+        }
+    </style>
+    <title>Registration Form</title>
+</head>
+<body>
+
+    <form id="registrationForm" onsubmit="validateForm(event)">
+        <legend>Registration Form:</legend>
+        <fieldset>
+            <label for="Username">Username:</label>
+            <input type="text" id="Username" name="Username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+            <input type="submit" value="Register">
+        </fieldset>
+    </form>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match. Please try again.");
+            } else {
+                alert("Registration successful!");
+            }
+        }
+    </script>
+
+</body>
+</html>
